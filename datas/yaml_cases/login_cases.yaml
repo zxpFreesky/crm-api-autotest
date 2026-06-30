@@ -1,0 +1,69 @@
+# 登录接口测试数据
+# 测试人员直接编辑此文件维护登录用例数据
+#
+# 注意：以下 account/password 为示例占位符
+# 实际使用时请替换为你的真实测试账号（账号建议从 config/users.yaml 引用）
+
+login_wrong_password:
+  name: 密码错误
+  api: /api/admin/login
+  method: post
+  data:
+    account: test_user
+    password: wrong_password
+    identity_type: 0
+    remember_pwd: false
+    verify_code: ""
+    using_email_verify: 0
+    fingerprint: "test_fingerprint"
+    is_pc_login: 1
+    RSApassword: 0
+  assert:
+    - path: message
+      operator: contains
+      expect: "错误"
+  skip: false
+
+login_account_not_exist:
+  name: 账号不存在
+  api: /api/admin/login
+  method: post
+  data:
+    account: not_exist_user
+    password: any_password
+    identity_type: 0
+    remember_pwd: false
+    verify_code: ""
+    using_email_verify: 0
+    fingerprint: "test_fingerprint"
+    is_pc_login: 1
+    RSApassword: 0
+  assert:
+    - path: message
+      operator: contains
+      expect: "不存在"
+  skip: true
+
+login_success:
+  name: 登录成功
+  api: /api/admin/login
+  method: post
+  data:
+    account: your_account
+    password: your_password
+    identity_type: 0
+    remember_pwd: false
+    verify_code: ""
+    using_email_verify: 0
+    fingerprint: "test_fingerprint"
+    is_pc_login: 1
+    RSApassword: 0
+  extract:
+    token: data.access_token
+  assert:
+    - path: message
+      operator: contains
+      expect: "成功"
+    - path: data.access_token
+      operator: not_null
+  skip: false

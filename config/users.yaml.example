@@ -1,0 +1,44 @@
+# 测试账号配置示例
+# 使用前请将此文件复制为 users.yaml 并填入真实账号信息
+# 复制命令: cp config/users.yaml.example config/users.yaml
+
+# 默认账号（向后兼容）
+default:
+  user: your_username
+  pwd: your_password
+  role: "default"
+
+# 销售账号 1
+sale_account_1:
+  user: sale001
+  pwd: your_password
+  role: "sale"
+  department: "销售一部"
+
+# 销售账号 2
+sale_account_2:
+  user: sale002
+  pwd: your_password
+  role: "sale"
+  department: "销售二部"
+
+# 销售助理账号
+assistant_account:
+  user: assistant001
+  pwd: your_password
+  role: "assistant"
+  department: "销售助理"
+
+# 管理员账号
+admin_account:
+  user: admin
+  pwd: your_password
+  role: "admin"
+  department: "管理部"
+
+# 市场部账号
+marketing_account:
+  user: marketing001
+  pwd: your_password
+  role: "marketing"
+  department: "市场部"

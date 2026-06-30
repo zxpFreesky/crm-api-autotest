@@ -1,0 +1,52 @@
+[level]
+logger=debug
+ch=DEBUG
+fh=INFO
+
+[format]
+formatter=%%(asctime)s-%%(levelname)s:%%(message)s
+
+[case]
+button=all
+
+
+[env]
+# 当前激活环境: test / gray / prod (只改这一行即可切换环境)
+active=test
+
+[host]
+# 测试环境
+test=https://test.example.com
+# 灰度环境
+gray=https://gray.example.com
+# 生产环境
+prod=https://prod.example.com
+
+[database]
+host=
+usename=
+pwd=
+
+[notify]
+# 企业微信群机器人 Webhook 地址
+# 获取方式：群聊设置 -> 群机器人 -> 添加机器人 -> 复制 Webhook 地址
+wecom_webhook=
+# 消息类型: markdown / text / template_card
+wecom_msg_type=template_card
+# @ 的 userid 列表（企业微信 userid，逗号分隔）
+wecom_mentioned_list=
+# @ 的手机号列表（仅 text 类型支持）
+wecom_mentioned_mobile=
+
+[ai]
+# 失败用例诊断开关: true / false
+diagnosis=true
+# AI 语义断言开关（需配置 LLM）
+smart_assert=false
+# Self-Healing 自愈开关（需配置 LLM）
+self_healing=false
+
+[data]
+# 业务基础参数
+memberid=admin
+pass=123456
