@@ -65,8 +65,12 @@ datas/*.xlsx
 datas/ai_case_registry.json
 
 # ── 运行产物 ──────────────────────────────
-logs/
-reports/
+# logs 和 reports 目录的真实文件不入 Git（含敏感数据）
+# 但保留 README.md 作为目录说明
+logs/*
+!logs/README.md
+reports/*
+!reports/README.md
 *.log
 *.out
 
